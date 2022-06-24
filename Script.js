@@ -1,3 +1,5 @@
+// this function is genarating random number 
+
 function generatePin(){
     const pinNumber = Math.round(Math.random()*10000);
     const pin = pinNumber + '';
@@ -10,10 +12,14 @@ function generatePin(){
     }
 }
 
+// showing the the random pin in the input tag
+
 document.getElementById("click-btn").addEventListener("click", function(){
     const pin = generatePin();
     document.getElementById("input-value").value = pin;
 });
+
+// number key action added and appending the number
 
 document.getElementById("key-pad").addEventListener("click", function(event){
     const number = event.target.innerText;
@@ -32,6 +38,8 @@ document.getElementById("key-pad").addEventListener("click", function(event){
     }
 })
 
+// matching the pin 
+
 function verifyPin(){
   const checkPin = document.getElementById("input-value").value;
   const keyPadInput = document.getElementById("num-input").value;
@@ -44,3 +52,9 @@ function verifyPin(){
     document.getElementById("notify-cross").style.display = "block"
   }
 }
+
+// delete element one after another 
+document.getElementById("delete-btn").addEventListener("click",function(){
+  const numInput = document.getElementById("num-input").value;
+  document.getElementById("num-input").value = numInput.slice(0, numInput.length-1);
+})
